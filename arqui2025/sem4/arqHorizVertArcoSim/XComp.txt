@@ -1,0 +1,5 @@
+XComp - toma como input un microprograma vertical y lo convierte en un componente con las instrucciones traducidas para importar en ArcoSim
+
+Sintaxis
+    XComp filename.asm [filename.arcocpnt]
+

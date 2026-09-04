@@ -1,0 +1,12 @@
+0b 0000 0000 0000 0001 0000 0000 0000 0001
+
+ECX = 4, 1 -> leer 1 valor, de 4 bytes
+0b 0000 0000 0000 0100 0000 0000 0000 0001
+
+x = 0b100 << 32
+x OR 1
+
+SYS 0x01
+sys -> ECX los 2 pares de bytes para saber cant valores y tamaño de valores
+sys -> EAX Formato que lo va leer/escribir, (0 decimal, 1 caracter, 2 binario, etc.) leer (un solo modo), escribir combinacion de modos
+sys -> EDX Donde (en memoria ppal) va a guardar el dato a leer, o a consultar el dato a escribir
