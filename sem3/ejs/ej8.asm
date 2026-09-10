@@ -1,11 +1,15 @@
 ; 8. Se ingresan una serie de números naturales, terminada con un número negativo. Mostrar por
 ; cada número ingresado la cantidad de bits en 1 que contiene su representación binaria.
 ;
+
+
 inicio:             mov EAX, 1
-                    mov EDX, [8] ; voy a usar los primeros 2*4 bytes para mostrar la cant de bits y almacenar el tamaño de la lista
+                    ; buena practica primero asignar ds a edx y luego sumar
+                    mov EDX, DS
+                    add EDX; 8 ; voy a usar los primeros 2*4 bytes para mostrar la cant de bits y almacenar el tamaño de la lista
                     ldh ECX, 4
                     ldl ECX, 1
-                    ;
+               
                     mov EBX, 0 ; lo uso como contador de números
                     ;
 cicloLectura:       sys 1
@@ -13,6 +17,7 @@ cicloLectura:       sys 1
                     JN sigue
                     add EDX, 4 ; me muevo a los siguientes 4 bytes en memoria
                     add EBX, 1 ; contador++
+                    JMP cicloLectura ; me comí esto
                     ;
 sigue:              mov [4], EBX ; copiar EBX (cant de números a memoria [4])
                     mov EBX, 0 ; EBX ahora es contador (no cant)                    
